@@ -14,7 +14,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
-        - uses: alf1e/caprover-action@v1
+        - uses: alf1e/caprover-action@1.0.0
           with:
             server: '${{ secrets.CAPROVER_SERVER }}'
             password: '${{ secrets.CAPROVER_PASSWORD }}'
