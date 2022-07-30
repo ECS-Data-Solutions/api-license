@@ -5,5 +5,6 @@ WORKDIR /app
 COPY . .
 
 RUN pip3 install -e .
+ENV FLASK_APP elicense
 
-CMD ["FLASK_APP='elicense'", "flask", "run"]
+CMD ["flask", "run"]
