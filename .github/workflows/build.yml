@@ -1,9 +1,6 @@
 name: Build and Deploy App
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
       - master
@@ -14,8 +11,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
-        - uses: alf1e/caprover-action@1.0.0
+        - name: Set up npm
+          uses: actions/setup-node@v2
           with:
-            server: '${{ secrets.CAPROVER_SERVER }}'
-            password: '${{ secrets.CAPROVER_PASSWORD }}'
-            appname: 'ecs-api-license'
+            node-version: '14'
+
+        - name: Install caprover
+          run: npm install -g caprover
+
+        - name: Caprover Deploy
+          run: caprover deploy -h '${{ secrets.CAPROVER_SERVER' -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'master' -a 'ecs-api-license'
