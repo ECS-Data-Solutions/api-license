@@ -7,6 +7,6 @@ setup(
     install_requires=[
         'flask',
         'flask-restful',
-        'Flask-PyMongo'
+        'PyMongo'
     ],
 )

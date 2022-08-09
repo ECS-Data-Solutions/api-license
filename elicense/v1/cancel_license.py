@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
 from random import randbytes
-from elicense.__init__ import mongo
+from elicense.mongo import mongo
 
 class CancelLicense(Resource):
     def delete(self):

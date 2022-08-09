@@ -1,13 +1,10 @@
 from flask import Flask
 from flask_restful import Api
 import os
-from flask_pymongo import PyMongo
 
 
 app = Flask(__name__)
 api = Api(app)
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-mongo = PyMongo(app)
 
 # API /v1
 from elicense.v1.activate_license import ActivateLicense
